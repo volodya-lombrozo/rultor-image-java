@@ -57,31 +57,9 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 # Basic Linux tools
-RUN apt-get -y --no-install-recommends install wget \
-  vim \
+RUN apt-get -y install wget \
   curl \
   sudo \
-  unzip \
-  zip \
-  gnupg2 \
-  jq \
-  netcat-openbsd \
-  bsdmainutils \
-  libcurl4-gnutls-dev \
-  libxml2-utils \
-  libjpeg-dev \
-  aspell \
-  ghostscript \
-  inkscape \
-  build-essential \
-  automake \
-  autoconf \
-  chrpath \
-  libxft-dev \
-  libfreetype6 \
-  libfreetype6-dev \
-  libfontconfig1 \
-  libfontconfig1-dev \
   software-properties-common
 
 # Docker cli
@@ -142,10 +120,6 @@ RUN echo 'export M2_HOME=/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}' 
   && mvn -version \
   && bash -c '[[ "$(mvn --version)" =~ "${MAVEN_VERSION}" ]]'
 COPY settings.xml /root/.m2/settings.xml
-
-# Pygments
-RUN apt-get -y install python3-pygments \
-  && pip3 install -Iv pygments
 
 # Clean up
 RUN rm -rf /tmp/* \
