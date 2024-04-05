@@ -20,11 +20,6 @@ versions:
 * Maven
 * Ruby (left intentionally, to use `xcop` and `pdd` utilities)
 
-To use Java 17 do this:
-
-```
-$ update-java-alternatives --set /usr/lib/jvm/java-17
-$ export JAVA_HOME=/usr/lib/jvm/java-17
-```
+Images uses Java 17.
 
 Feel free to add yours by submitting a pull request.
