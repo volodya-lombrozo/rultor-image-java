@@ -1,4 +1,4 @@
-[![docker](https://github.com/volodya-lombrozo/rultor-image/actions/workflows/docker.yml/badge.svg)](https://github.com/volodya-lombrozo/rultor-image/actions/workflows/docker.yml)
+[![docker](https://github.com/volodya-lombrozo/rultor-image/actions/workflows/docker-build.yml/badge.svg)](https://github.com/volodya-lombrozo/rultor-image/actions/workflows/docker-build.yml)
 [![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/volodya-lombrozo/rultor-image)](https://hub.docker.com/r/volodya-lombrozo/rultor-image)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/volodya-lombrozo/total/rultor-image/master/LICENSE.txt)
 
