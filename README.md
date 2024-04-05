@@ -9,7 +9,7 @@ image, which is quite large and slow to build, this one is significantly smaller
 and faster
 
 Docker Hub
-as [`volodya-lombrozo/rultor-image-java`](https://hub.docker.com/r/volodya-lombrozo/rultor-image-java).
+as [`lombrozo/rultor-image-java`](https://hub.docker.com/r/lombrozo/rultor-image-java).
 
 This image has Ubuntu 22.04 and the following packages, in their latest
 versions:
