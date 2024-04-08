@@ -32,7 +32,8 @@
 # Rultor has no dependency on these packages.
 
 FROM ubuntu:22.04
-LABEL Description="This is the java image for Rultor.com" Version="0.0.0"
+LABEL description="This is the java image for Rultor.com"
+LABEL version="0.0.0"
 WORKDIR /tmp
 
 ENV DEBIAN_FRONTEND=noninteractive
