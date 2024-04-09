@@ -59,7 +59,6 @@ ENV LANGUAGE en_US.UTF-8
 
 # Basic Linux tools
 RUN apt-get -y install curl \
-  sudo \
   software-properties-common
 
 # Docker cli
@@ -82,7 +81,7 @@ RUN apt-get -y install ssh \
 # Ruby
 RUN apt-get -y install ruby-dev libmagic-dev zlib1g-dev openssl \
   && gpg --keyserver keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB \
-  && curl -L https://get.rvm.io | sudo bash -s stable \
+  && curl -L https://get.rvm.io | bash -s stable \
   && echo "source /usr/local/rvm/scripts/rvm && rvm use 3.2.2 && rvm default 3.2.2" >> /root/.profile \
   && bash -l -c ". /etc/profile.d/rvm.sh && rvm pkg install openssl" \
   && bash -l -c ". /etc/profile.d/rvm.sh && rvm install ruby-3.2.2 --with-openssl-lib=/usr/lib --with-openssl-include=/usr/include" \
@@ -109,7 +108,7 @@ RUN apt-get -y install ca-certificates openjdk-17-jdk \
 ENV MAVEN_VERSION 3.9.6
 ENV M2_HOME "/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}"
 RUN echo 'export M2_HOME=/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}' >> /root/.profile \
-  &&  curl -sO "https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
+  && curl -sO "https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
   && mkdir -p /usr/local/apache-maven \
   && mv "apache-maven-${MAVEN_VERSION}-bin.tar.gz" /usr/local/apache-maven \
   && tar xzvf "/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}-bin.tar.gz" -C /usr/local/apache-maven/ \
