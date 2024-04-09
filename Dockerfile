@@ -96,7 +96,7 @@ RUN apt-get -y install ruby-dev libmagic-dev zlib1g-dev openssl \
     && gem install openssl -v 3.1.0"
 
 # Java
-ENV MAVEN_OPTS "-Xmx1g"
+ENV MAVEN_OPTS "-Xmx1g --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
 ENV JAVA_OPTS "-Xmx1g"
 ENV JAVA_HOME "/usr/lib/jvm/java-17"
 RUN apt-get -y install ca-certificates openjdk-17-jdk \
