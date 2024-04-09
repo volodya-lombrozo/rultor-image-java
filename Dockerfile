@@ -58,8 +58,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 # Basic Linux tools
-RUN apt-get -y install wget \
-  curl \
+RUN apt-get -y install curl \
   sudo \
   software-properties-common
 
@@ -110,7 +109,7 @@ RUN apt-get -y install ca-certificates openjdk-17-jdk \
 ENV MAVEN_VERSION 3.9.6
 ENV M2_HOME "/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}"
 RUN echo 'export M2_HOME=/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}' >> /root/.profile \
-  && wget --quiet "https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
+  &&  curl -sO "https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
   && mkdir -p /usr/local/apache-maven \
   && mv "apache-maven-${MAVEN_VERSION}-bin.tar.gz" /usr/local/apache-maven \
   && tar xzvf "/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}-bin.tar.gz" -C /usr/local/apache-maven/ \
@@ -124,7 +123,6 @@ COPY settings.xml /root/.m2/settings.xml
 RUN rm -rf /tmp/* \
   /root/.ssh \
   /root/.cache \
-  /root/.wget-hsts \
   /root/.gnupg
 
 ENTRYPOINT ["/bin/bash", "--login", "-c"]
