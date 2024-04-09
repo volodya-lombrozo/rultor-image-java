@@ -107,7 +107,7 @@ RUN apt-get -y install ca-certificates openjdk-17-jdk \
 # Maven
 ENV MAVEN_VERSION 3.9.6
 ENV M2_HOME "/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}"
-RUN echo 'export M2_HOME=/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}' >> /root/.profile \
+RUN echo "export M2_HOME=/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}" >> /root/.profile \
   && curl -sO "https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
   && mkdir -p /usr/local/apache-maven \
   && mv "apache-maven-${MAVEN_VERSION}-bin.tar.gz" /usr/local/apache-maven \
