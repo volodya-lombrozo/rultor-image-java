@@ -53,9 +53,9 @@ RUN apt-get clean \
   && echo 'export LANG=en_US.UTF-8' >> /root/.profile \
   && echo 'export LANGUAGE=en_US.UTF-8' >> /root/.profile
 
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8
 
 # Basic Linux tools
 RUN apt-get -y install curl \
@@ -95,9 +95,9 @@ RUN apt-get -y install ruby-dev libmagic-dev zlib1g-dev openssl \
     && gem install openssl -v 3.1.0"
 
 # Java
-ENV MAVEN_OPTS "-Xmx1g --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
-ENV JAVA_OPTS "-Xmx1g"
-ENV JAVA_HOME "/usr/lib/jvm/java-17"
+ENV MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
+ENV JAVA_OPTS="-Xmx1g"
+ENV JAVA_HOME="/usr/lib/jvm/java-17"
 RUN apt-get -y install ca-certificates openjdk-17-jdk \
   && update-java-alternatives --set $(ls /usr/lib/jvm | grep java-1.17) \
   && ln -s "/usr/lib/jvm/$(ls /usr/lib/jvm | grep java-1.17)" /usr/lib/jvm/java-17 \
@@ -105,8 +105,8 @@ RUN apt-get -y install ca-certificates openjdk-17-jdk \
   && bash -c '[[ "$(javac  --version)" =~ "17.0" ]]'
 
 # Maven
-ENV MAVEN_VERSION 3.9.6
-ENV M2_HOME "/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}"
+ENV MAVEN_VERSION=3.9.6
+ENV M2_HOME="/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}"
 RUN echo "export M2_HOME=/usr/local/apache-maven/apache-maven-${MAVEN_VERSION}" >> /root/.profile \
   && curl -sO "https://dlcdn.apache.org/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" \
   && mkdir -p /usr/local/apache-maven \
