@@ -124,4 +124,6 @@ RUN rm -rf /tmp/* \
   /root/.cache \
   /root/.gnupg
 
+ENV MAVEN_OPTS="--add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.text=ALL-UNNAMED --add-opens=java.desktop/java.awt.font=ALL-UNNAMED"
+
 ENTRYPOINT ["/bin/bash", "--login", "-c"]
